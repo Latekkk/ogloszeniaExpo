@@ -3,18 +3,19 @@ import { View, StyleSheet } from 'react-native';
 import SquareWithImageAndText from './SquareWithImageAndText';
 
 interface Props {
-  image1: any;
-  title1: string;
-  image2: any;
-  title2: string;
+  ad1: any;
+  ad2: any;
 }
 
 
-const TwoImageColumn: React.FC<Props> = ({ image1, title1, image2, title2 }) => {
+const TwoImageColumn: React.FC<Props> = ({ ad1, ad2 }) => {
   return (
       <View style={styles.container}>
-        <SquareWithImageAndText image={image1} title={title1} />
-        <SquareWithImageAndText image={image2} title={title2} />
+        <SquareWithImageAndText ad={ad1}  />
+        {
+          ad2 && <SquareWithImageAndText ad={ad2} />
+        }
+
       </View>
   );
 };

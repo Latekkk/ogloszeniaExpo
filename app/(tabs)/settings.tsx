@@ -1,9 +1,12 @@
 import React, {useContext} from 'react';
-import {View, StyleSheet, StatusBar} from 'react-native';
+import {View, StyleSheet, StatusBar, Pressable, useColorScheme} from 'react-native';
 
 import { Switch, Text } from 'react-native-elements';
 import { DarkModeActionsContext } from '../DarkModeActionsContext';
 import {FullScreenContext} from "../FullSreenContext";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Colors from "../../constants/Colors";
+import {Link} from "expo-router";
 const SettingsScreen = () => {
   const [notificationsEnabled, setNotificationsEnabled] = React.useState(false);
 
@@ -14,6 +17,8 @@ const SettingsScreen = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeActionsContext);
 
   const { fullScreen, setFullScreen } = useContext(FullScreenContext);
+
+  const colorScheme = useColorScheme();
   return (
       <View style={styles.container}>
         {
@@ -46,6 +51,24 @@ const SettingsScreen = () => {
               color="#6200EE"
           />
         </View>
+
+        <View style={styles.settingsItem}>
+          <Text style={styles.settingsLabel}>Pokaż licencje</Text>
+          <Link href="/licencja" asChild>
+            <Pressable
+            >
+              {({pressed}) => (
+                  <FontAwesome
+                      name="info-circle"
+                      size={25}
+                      color={Colors[colorScheme ?? 'light'].text}
+                      style={{marginRight: 15, opacity: pressed ? 0.5 : 1}}
+                  />
+              )}
+            </Pressable>
+          </Link>
+        </View>
+
       </View>
   );
 };

@@ -7,12 +7,12 @@ export default function Categories() {
   const photo = require('../assets/images/logo.png');
   const categories = [
     { source: photo, text: 'Ogloszenia' },
-    { source: 'https://i.iplsc.com/-/0007E9WWI9S7NNCP-C429-F4.jpg', text: 'Samochody' },
-    { source: 'https://img.shmbk.pl/rimgsph/2761_480cbb78-e015-45a8-9a0d-6133b062d90a_max_1280_768_zdjecie-domy-styl-tradycyjny.jpg', text: 'Domy' },
-    { source: 'https://marketingibiznes.pl/wp-content/uploads/2019/03/wokr1350-min.png', text: 'Praca' },
-    { source: 'https://www.tranzystor.pl/wp-content/uploads/IMG_20190124_150746-e1586892779796.jpg', text: 'Elektronika' },
-    { source: 'https://www.debki.pl/img/layout/debki/kategorie/noclegi-debki.jpg', text: 'Noclegi' },
-    { source: 'https://sercunaratunek.pl/wp-content/uploads/2020/02/warzywa.jpg', text: 'Warzywa' },
+    { source: require('../assets/images/categories/Samochody.png'), text: 'Samochody' },
+    { source: require('../assets/images/categories/Domy.png'), text: 'Domy' },
+    { source: require('../assets/images/categories/Praca.png'), text: 'Praca' },
+    { source: require('../assets/images/categories/Elektronika.png'), text: 'Elektronika' },
+    { source: require('../assets/images/categories/Noclegi.png'), text: 'Noclegi' },
+    { source: require('../assets/images/categories/Warzywa.png'), text: 'Warzywa' },
   ];
 
   return (

@@ -1,22 +1,30 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import TwoImageColumn from './TwoImageColumn';
 
 interface Props {
-    ads: Array<{ id: number; image1: any; title1: string; image2: any; title2: string }>;
+    ads: Array<{image: any; title: string; }>;
     onScroll: () => void;
 }
 
-const AdvertisementsColumn: React.FC<Props> = ({ ads, onScroll }) => {
+const AdvertisementsColumn: React.FC<Props> = ({ads, onScroll}) => {
     return (
         <ScrollView
             contentContainerStyle={styles.container}
             showsVerticalScrollIndicator={false}
             onScroll={onScroll}
         >
-            {ads.map(ad => (
-                <TwoImageColumn key={ad.id} image1={ad.image1} title1={ad.title1} image2={ad.image2} title2={ad.title2} />
-            ))}
+            {ads.map((ad, i) => {
+                if (i % 2 === 0) {
+                    return (
+                        <TwoImageColumn
+                            key={i}
+                            ad1={ad}
+                            ad2={ads[i+1]}
+                        />
+                    );
+                }
+            })}
         </ScrollView>
     );
 };

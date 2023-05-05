@@ -36,8 +36,9 @@ export default function TabLayout() {
                             title: 'Aplikacja Adama 30689',
                             tabBarIcon: ({color}) => <TabBarIcon name="shopping-bag" color={color}/>,
                             headerRight: () => (
-                                <Link href="/modal" asChild>
-                                    <Pressable>
+                                <Link href="/licencja" asChild>
+                                    <Pressable
+                                    >
                                         {({pressed}) => (
                                             <FontAwesome
                                                 name="info-circle"

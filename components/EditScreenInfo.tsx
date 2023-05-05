@@ -11,33 +11,29 @@ export default function EditScreenInfo({ path }: { path: string }) {
     <View>
       <View style={styles.getStartedContainer}>
         <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
+            style={styles.getStartedText}
+            lightColor="rgba(0,0,0,0.8)"
+            darkColor="rgba(255,255,255,0.8)">
+          * Ten kod jest objęty licencją Creative Commons Attribution 4.0 International License.
         </Text>
-
         <View
           style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
           darkColor="rgba(255,255,255,0.05)"
           lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
+          <MonoText>
+            Creative Commons Attribution 4.0 (CC BY 4.0) to rodzaj licencji Creative Commons, która pozwala na swobodne wykorzystanie, modyfikowanie i dzielenie się utworami, pod warunkiem, że jest podana odpowiednia informacja o autorstwie. Oznacza to, że możesz edytować i modyfikować kod na własne potrzeby, pod warunkiem, że podasz źródło (autorstwo) pierwotnego kodu. Jest to licencja, która zapewnia duży zakres swobody w korzystaniu z utworów, zachowując jednocześnie pewne zasady etyki i szacunku dla twórców.</MonoText>
         </View>
-
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
-        </Text>
       </View>
 
       <View style={styles.helpContainer}>
         <ExternalLink
           style={styles.helpLink}
-          href="https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet">
+          href="https://creativecommons.org/licenses/by/4.0/">
           <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
+            Więcej o licencji na:
+          </Text>
+          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
+            "https://creativecommons.org/licenses/by/4.0/"
           </Text>
         </ExternalLink>
       </View>
@@ -48,7 +44,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
 const styles = StyleSheet.create({
   getStartedContainer: {
     alignItems: 'center',
-    marginHorizontal: 50,
+    marginHorizontal: 20,
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -68,6 +64,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   helpLink: {
+    display: "flex",
+    flexDirection: "column",
     paddingVertical: 15,
   },
   helpLinkText: {

@@ -4,79 +4,16 @@ import {Header} from "../../components/Header";
 import Categories from '../../components/Categories';
 import AdvertisementsColumn from '../../components/AdvertisementsColumn';
 import { Feather } from '@expo/vector-icons';
-import {useEffect, useRef, useState } from 'react';
+import {useContext, useEffect, useRef, useState} from 'react';
 import _ from 'lodash';
-import { StatusBar } from 'react-native';
+import {SelectedAdsContext} from "../SelectedAdsContext";
 
-const ads = [
-  {
-    id: '1',
-    title1: 'Nauczyciel',
-    image1: require('../../assets/images/image1.jpg'),
-    title2: 'Opona',
-    image2: require('../../assets/images/image2.jpg'),
-  },
-  {
-    id: '2',
-    title1: 'Tynkarz',
-    image1: require('../../assets/images/image3.jpg'),
-    title2: 'Krowa',
-    image2: require('../../assets/images/krowa.jpg'),
-  },
-  {
-    id: '3',
-    title1: 'Kapela',
-    image1: require('../../assets/images/image5.jpg'),
-    title2: 'Szalony fryzjer',
-    image2: require('../../assets/images/image6.jpg'),
-  },
-  {
-    id: '4',
-    title1: 'Nauczyciel',
-    image1: require('../../assets/images/image1.jpg'),
-    title2: 'Mechanik',
-    image2: require('../../assets/images/image2.jpg'),
-  },
-  {
-    id: '5',
-    title1: 'Tynkarz',
-    image1: require('../../assets/images/image3.jpg'),
-    title2: 'Title 4',
-    image2: require('../../assets/images/image4.jpg'),
-  },
-  {
-    id: '6',
-    title1: 'Majster',
-    image1: require('../../assets/images/image5.jpg'),
-    title2: 'Fryzjer',
-    image2: require('../../assets/images/image6.jpg'),
-  },
-  {
-    id: '7',
-    title1: 'Nauczyciel',
-    image1: require('../../assets/images/image1.jpg'),
-    title2: 'Mechanik',
-    image2: require('../../assets/images/image2.jpg'),
-  },
-  {
-    id: '8',
-    title1: 'Tynkarz',
-    image1: require('../../assets/images/image3.jpg'),
-    title2: 'Mlecarz',
-    image2: require('../../assets/images/image4.jpg'),
-  },
-  {
-    id: '9',
-    title1: 'Artysta',
-    image1: require('../../assets/images/image5.jpg'),
-    title2: 'Sprzedam ',
-    image2: require('../../assets/images/image6.jpg'),
-  },
-];
 
 export default function TabOneScreen() {
   const [elementVisible, setElementVisible] = useState<boolean>(false);
   const scrollViewRef = useRef<ScrollView>(null);
+
+  const { selectedAds, setSelectedAds } = useContext(SelectedAdsContext);
 
   const changeCategoryVisibility = _.debounce(() => {
     setElementVisible(!elementVisible);
@@ -97,6 +34,7 @@ export default function TabOneScreen() {
   useEffect(() => {
     setScrollViewHeight(elementVisible);
   }, [elementVisible]);
+
 
   return (
       <>
@@ -120,7 +58,7 @@ export default function TabOneScreen() {
         <View>
           <Text style={{ marginLeft: 3, marginBottom: 3, fontSize: 16, fontWeight: 'bold' }}>Wszystkie oferty</Text>
         </View>
-        <AdvertisementsColumn ads={ads} onScroll={handleAdvertisementsColumnScroll} />
+        <AdvertisementsColumn ads={selectedAds} onScroll={handleAdvertisementsColumnScroll} />
       </>
   );
 }
